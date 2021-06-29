@@ -6,6 +6,55 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="app" >
+        {{ name }}
+        <p v-text="name">
+
+        </p>
+        <p v-html="name"></p>
+
+        <p> {{ number1 
+            + number2 }} </p>
+
+        <button onclick="printName"> click </button>
+    </div>
+    <div id="app2">
+        {{ elementHtml }}
+        <div v-html="elementHtml">
+
+        </div>
+        <div>
+             <p> name : {{user.username}} </p>
+             <p> email : {{user.email}} </p>
+        </div>
+
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                name:"My First Name",
+                number1 :1,
+                number2 : 5
+            },
+            methods:{
+                printName(){
+                    alert(this.number1);
+                }
+            }
+        });
+
+        new Vue({
+            el:"#app2",
+            data:{
+                elementHtml:"<h1> Hello From App 2 </h1>",
+                user:{
+                    username:" Mohamed",
+                    email:"mohamed@email.com"
+                }
+            }
+        });
+    </script>
 </body>
 </html>
